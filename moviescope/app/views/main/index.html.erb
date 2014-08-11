@@ -1,0 +1,29 @@
+
+<!-- <div data-ng-app="movieApp"> -->
+  <div data-ng-controller="IndexCtrl">
+    <div class="col-md-4">
+      <form data-ng-submit="submitInput(searchInput); hideOrNot=true">
+        <input class="search" type="search" data-ng-model="searchInput">
+      </form>
+      <div data-ng-repeat="name in movieList">
+        <h4 data-ng-click="hideOrNot = !hideOrNot; movieInfoGet(name); bigDisplayGet(name)">{{name.Title}}</h4>
+          <ul data-ng-hide="hideOrNot">
+            <!-- <li><img src={{name.Details.Poster}}></li> -->
+            <li>year: {{name.Details.Year}}</li>
+            <li>imdb: {{name.Details.Rated}}</li>
+            <li>released: {{name.Details.Released}}</li>
+          </ul>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <ul>
+        <li>{{bigDisplay.Title}}</li>
+        <li><img src={{bigDisplay.Poster}}></li>
+      </ul>
+
+
+      <h3>big space</h3>
+    </div>
+
+  </div>
+<!-- </div> -->

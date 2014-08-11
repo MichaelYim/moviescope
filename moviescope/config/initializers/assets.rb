@@ -1,0 +1,1 @@
+Moviescope::Application.config.assets.precompile += %w( main.js )
