@@ -1,4 +1,4 @@
-@IndexCtrl = ($scope, $http)->
+@IndexCtrl = ["$scope", "$http", ($scope, $http)->
 
   $scope.movieList = null
   $scope.bigDisplay = null
@@ -33,4 +33,4 @@
       console.log "bigDisplay:", data
     ).error (data, status, headers, config) ->
       console.log "error mayneee"
-
+]
