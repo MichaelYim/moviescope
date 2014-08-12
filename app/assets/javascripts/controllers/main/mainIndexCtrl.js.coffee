@@ -2,13 +2,14 @@
 
   $scope.movieList = null
   $scope.bigDisplay = null
+
   $scope.submitInput = (movie) ->
 
-    $http(method: "GET", url: "http://www.omdbapi.com/", params: {s: movie}
+    $http(method: "GET", url: "http://www.omdbapi.com/", params: {s: movie, apikey: "5c4c1c9f"}
 
     ).success((data, status, headers, config) ->
       $scope.movieList = data.Search
-      # console.log "This is printing:", $scope.movieList
+      console.log "This is printing:", $scope.movieList
     ).error (data, status, headers, config) ->
       # console.log "error mayneee"
 
@@ -16,7 +17,7 @@
 
   $scope.movieInfoGet = (movie) ->
     index = $scope.movieList.indexOf(movie)
-    $http(method: "GET", url: "http://www.omdbapi.com/", params: {t: movie.Title}
+    $http(method: "GET", url: "http://www.omdbapi.com/", params: {t: movie.Title, apikey: "5c4c1c9f"}
 
     ).success((data, status, headers, config) ->
       $scope.movieList[index].Details = data
@@ -30,9 +31,40 @@
 
     ).success((data, status, headers, config) ->
       $scope.bigDisplay = data
-      console.log "bigDisplay:", data
+
     ).error (data, status, headers, config) ->
       console.log "error mayneee"
+
+  $scope.bigPoster = (movie) ->
+
+    $http(method: "GET", url: "http://www.omdbapi.com/",  params: {t: movie.Title}
+    ).success((data, status, headers, config) ->
+      console.log "running 2nd call"
+
+      console.log data.imdbID
+      $http(method: "GET", url: "http://img.omdbapi.com/",  params: {i: data.imdbID, apikey: "5c4c1c9f"}
+      ).success((data, status, headers, config) ->
+        console.log "this is from img call"
+
+        console.log data
+
+      ).error (data, status, headers, config) ->
+        console.log "error mayneee"
+
+
+    ).error (data, status, headers, config) ->
+      console.log "error mayneee"
+
+
+    # $http(method: "GET", url: "http://img.omdbapi.com/",  params: {i: @imdbid, apikey: "5c4c1c9f"}
+    # ).success((data, status, headers, config) ->
+    #   data
+
+
+    # ).error (data, status, headers, config) ->
+    #   console.log "error from pic API"
+
+
 ]
 
 # Host: ia.media-imdb.com
