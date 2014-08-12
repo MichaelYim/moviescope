@@ -5,7 +5,7 @@
 
   $scope.submitInput = (movie) ->
 
-    $http(method: "GET", url: "http://www.omdbapi.com/", params: {s: movie, apikey: "5c4c1c9f"}
+    $http(method: "GET", url: "http://www.omdbapi.com/", params: {s: movie}
 
     ).success((data, status, headers, config) ->
       $scope.movieList = data.Search
@@ -17,7 +17,7 @@
 
   $scope.movieInfoGet = (movie) ->
     index = $scope.movieList.indexOf(movie)
-    $http(method: "GET", url: "http://www.omdbapi.com/", params: {t: movie.Title, apikey: "5c4c1c9f"}
+    $http(method: "GET", url: "http://www.omdbapi.com/", params: {t: movie.Title}
 
     ).success((data, status, headers, config) ->
       $scope.movieList[index].Details = data
@@ -27,43 +27,44 @@
 
   $scope.bigDisplayGet = (movie) ->
 
-    $http(method: "GET", url: "http://www.omdbapi.com/",  params: {t: movie.Title, apikey: "5c4c1c9f"}
+    $http(method: "GET", url: "http://www.omdbapi.com/",  params: {t: movie.Title}
 
     ).success((data, status, headers, config) ->
       $scope.bigDisplay = data
+      console.log data.imdbID
 
     ).error (data, status, headers, config) ->
       console.log "error mayneee"
 
   $scope.bigPoster = (movie) ->
 
+    # $http(method: "GET", headers: headers, url: "http://img.omdbapi.com/",  params: {i: "tt2294629", apikey: "5c4c1c9f"}
+    #   ).success((data, status, headers, config) ->
+    #     console.log "this is from img call"
+
+    #     console.log data
+
+    #   ).error (data, status, headers, config) ->
+    #     console.log "error mayneee"
+
     $http(method: "GET", url: "http://www.omdbapi.com/",  params: {t: movie.Title}
     ).success((data, status, headers, config) ->
-      console.log "running 2nd call"
+      bigId= data.imdbID
+      $scope.bigPoster="http://img.omdbapi.com/?i="+bigId+"&apikey=5c4c1c9f"
 
-      console.log data.imdbID
-      $http(method: "GET", url: "http://img.omdbapi.com/",  params: {i: data.imdbID, apikey: "5c4c1c9f"}
-      ).success((data, status, headers, config) ->
-        console.log "this is from img call"
+      # console.log data.imdbID
+      # $http(method: "GET", url: "http://img.omdbapi.com/",  params: {i: data.imdbID, apikey: "5c4c1c9f"}
+      # ).success((data, status, headers, config) ->
+      #   console.log "this is from img call"
 
-        console.log data
+      #   console.log data
 
-      ).error (data, status, headers, config) ->
-        console.log "error mayneee"
+      # ).error (data, status, headers, config) ->
+      #   console.log "error mayneee"
 
 
     ).error (data, status, headers, config) ->
       console.log "error mayneee"
-
-
-    # $http(method: "GET", url: "http://img.omdbapi.com/",  params: {i: @imdbid, apikey: "5c4c1c9f"}
-    # ).success((data, status, headers, config) ->
-    #   data
-
-
-    # ).error (data, status, headers, config) ->
-    #   console.log "error from pic API"
-
 
 ]
 
