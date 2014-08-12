@@ -26,7 +26,7 @@
 
   $scope.bigDisplayGet = (movie) ->
 
-    $http(method: "GET", url: "http://www.omdbapi.com/", params: {t: movie.Title}
+    $http(method: "GET", url: "http://www.omdbapi.com/",  params: {t: movie.Title, apikey: "5c4c1c9f"}
 
     ).success((data, status, headers, config) ->
       $scope.bigDisplay = data
