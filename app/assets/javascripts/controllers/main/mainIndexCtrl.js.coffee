@@ -36,43 +36,14 @@
     ).error (data, status, headers, config) ->
       console.log "error mayneee"
 
-  $scope.bigPoster = (movie) ->
-
-    # $http(method: "GET", headers: headers, url: "http://img.omdbapi.com/",  params: {i: "tt2294629", apikey: "5c4c1c9f"}
-    #   ).success((data, status, headers, config) ->
-    #     console.log "this is from img call"
-
-    #     console.log data
-
-    #   ).error (data, status, headers, config) ->
-    #     console.log "error mayneee"
+  $scope.bigPosterGet = (movie) ->
 
     $http(method: "GET", url: "http://www.omdbapi.com/",  params: {t: movie.Title}
     ).success((data, status, headers, config) ->
       bigId= data.imdbID
       $scope.bigPoster="http://img.omdbapi.com/?i="+bigId+"&apikey=5c4c1c9f"
 
-      # console.log data.imdbID
-      # $http(method: "GET", url: "http://img.omdbapi.com/",  params: {i: data.imdbID, apikey: "5c4c1c9f"}
-      # ).success((data, status, headers, config) ->
-      #   console.log "this is from img call"
-
-      #   console.log data
-
-      # ).error (data, status, headers, config) ->
-      #   console.log "error mayneee"
-
-
     ).error (data, status, headers, config) ->
       console.log "error mayneee"
 
 ]
-
-# Host: ia.media-imdb.com
-# Connection: keep-alive
-# Cache-Control: max-age=0
-# Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
-# User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36
-# Accept-Encoding: gzip,deflate,sdch
-# Accept-Language: en-US,en;q=0.8
-

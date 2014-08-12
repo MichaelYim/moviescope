@@ -5,7 +5,7 @@
       <input class="search" type="search" data-ng-model="searchInput">
     </form>
     <div data-ng-repeat="name in movieList">
-      <h4 data-ng-click="hideOrNot = !hideOrNot; movieInfoGet(name); bigDisplayGet(name); bigPoster(name)">{{name.Title}}</h4>
+      <h4 data-ng-click="hideOrNot = !hideOrNot; movieInfoGet(name); bigDisplayGet(name); bigPosterGet(name);">{{name.Title}}</h4>
         <ul data-ng-hide="hideOrNot">
           <!-- <li><img src={{name.Details.Poster}}></li> -->
           <li>year: {{name.Details.Year}}</li>
