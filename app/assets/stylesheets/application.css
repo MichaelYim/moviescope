@@ -15,9 +15,9 @@
  *= require bootstrap
  */
 
-.overall{
+/*.overall{
   font-family:Tahoma, Geneva, sans-serif;
-}
+}*/
 
 
 ul li { list-style-type: none; }
@@ -27,7 +27,7 @@ ul li { list-style-type: none; }
   }
 
 .right-box{
-  background-color:#2BDCCD;
+  background-color:#ffffff;
   padding:5px 0 1000px 0;
   color:#E3E4E5;
   border-left-style:solid;
@@ -39,20 +39,24 @@ ul li { list-style-type: none; }
 
 header h3{
   color:white;
-  background-color:#38595E;
+  background-color:#428bca;
   margin:0;
   padding:4px;
   border-radius:11px;
 }
 
+.tagline {
+  color:black;
+  font-family:"Comic Sans MS", cursive, sans-serif;
+}
 
 
 h4 {
- font-size:17px;
+ font-size:14px;
 }
 
 .movie-buttons:hover{
-  background-color:#73E7DC;
+  background-color:#eee;
   cursor: pointer;
   cursor: hand;
 }
@@ -64,9 +68,9 @@ h4 {
 }
 
 .left-box{
-  background-color:#2CC0B3;
+  background-color:#f8f8f8;
   border-color:#16a085;
-  color:white;
+  color:#428bca;
   padding:5px 0 1000px 0
 }
 
@@ -76,7 +80,8 @@ h4 {
 }
 
 .input-box {
-  padding-left:20%;
+  padding-left:5%;
+  padding-right:5%;
 
 }
 
@@ -95,13 +100,15 @@ h4 {
 .big-list h4 {
   margin-top:0px;
   margin-bottom:0px;
-  color:white;
+  color:#555;
+  font-size:15px;
 }
 
 .big-list h5 {
   margin-top:10px;
   margin-bottom:2px;
-  color: #38595E;
+  color: #428bca;
+
 }
 
 .hr-line{
@@ -110,9 +117,9 @@ h4 {
 
 .scores {
   padding-bottom:7px;
-  padding-left:20px;
-  color:#FFC267;
-  font-size:27px;
+  padding-left:27px;
+  color:#FEB74D;
+  font-size:20px;
   font-weight:bold;
   margin-top:0px;
   margin-bottom:0px;
