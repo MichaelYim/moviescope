@@ -9,7 +9,6 @@
 
     ).success((data, status, headers, config) ->
       $scope.movieList = data.Search
-      console.log "This is printing:", $scope.movieList
     ).error (data, status, headers, config) ->
       # console.log "error mayneee"
 
@@ -27,11 +26,11 @@
 
   $scope.bigDisplayGet = (movie) ->
 
-    $http(method: "GET", url: "http://www.omdbapi.com/",  params: {t: movie.Title}
+    $http(method: "GET", url: "http://www.omdbapi.com/",  params: {t: movie.Title, i: movie.imdbID}
 
     ).success((data, status, headers, config) ->
       $scope.bigDisplay = data
-      console.log data.imdbID
+      console.log data
 
     ).error (data, status, headers, config) ->
       console.log "error mayneee"
@@ -43,7 +42,10 @@
       bigId= data.imdbID
       $scope.bigPoster="http://img.omdbapi.com/?i="+bigId+"&apikey=5c4c1c9f"
 
+
+
     ).error (data, status, headers, config) ->
       console.log "error mayneee"
+
 
 ]

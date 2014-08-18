@@ -1,32 +1,59 @@
 
-<div data-ng-controller="IndexCtrl">
-  <div>
-    <div class="col-md-4 left-box">
+<div class="overall" data-ng-controller="IndexCtrl">
+  <div class="">
+    <div class="col-md-3 left-box">
       <div class="inner-left-box">
-        <form data-ng-submit="submitInput(searchInput); hideOrNot=true">
-          <input class="search" type="search" data-ng-model="searchInput">
+        <form class="input-box" data-ng-submit="submitInput(searchInput); hideOrNot=true">
+          <input class="search" placeholder="movie name" type="search" data-ng-model="searchInput">
         </form>
-        <div data-ng-repeat="name in movieList">
-          <h4 data-ng-click="hideOrNot = !hideOrNot; movieInfoGet(name); bigDisplayGet(name); bigPosterGet(name);">{{name.Title}}</h4>
-            <ul data-ng-hide="hideOrNot">
-              <!-- <li><img src={{name.Details.Poster}}></li> -->
+        <br>
+        <hr class="hr-line">
+        <div class="movie-buttons" data-ng-repeat="name in movieList">
+          <h4 class = "text-center movie-button-text" data-ng-click="hideOrNot = false; movieInfoGet(name); bigDisplayGet(name); bigPosterGet(name);"><span class="caret"></span>{{name.Title}}</h4>
+<!--             <ul class="pop-down-info" data-ng-hide="hideOrNot">
               <li>year: {{name.Details.Year}}</li>
               <li>imdb: {{name.Details.Rated}}</li>
               <li>released: {{name.Details.Released}}</li>
-            </ul>
+            </ul> -->
+          <hr class="hr-line">
         </div>
       </div>
     </div>
   </div>
-  <div class="col-md-8">
-    <ul>
-      <li>{{bigDisplay.Title}}</li>
-      <li><img src={{bigPoster}}></li>
-      <!-- <li><img src={{name.bigPoster}}></li> -->
-    </ul>
+  <div class="col-md-9 right-box">
+    <div class="row">
+      <div class="col-md-offset-4 col-sm-offset-4 col-xs-offset-4 col-md-4 col-sm-4 col-xs-4">
+        <header>
+          <h3 class="text-center">movieScope</h3>
+        </header>
+      </div>
+    </div>
+    <div class="under">
+      <div class="col-md-3">
+        <img src={{bigPoster}}>
+      </div>
+      <div class="col-md-9">
+        <div data-ng-hide="!hideOrNot" class="big-list">
+          <div class="">
+            <row>
+              <div class="col-md-6 col-sm-6 col-xs-6"><h5>Metascore:</h5> <h7 class="scores">{{bigDisplay.Metascore}}</h7></div>
+              <div class="col-md-6 col-sm-6 col-xs-6"><h5>IMDB Rating:</h5><h7 class="scores">{{bigDisplay.imdbRating}}</h7></div>
+            </row>
+          </div>
+          <ul>
+            <li><h5>title:</h5> <h4>{{bigDisplay.Title}}</h4></li>
+            <li><h5>genre:</h5> <h4>{{bigDisplay.Genre}}</h4></li>
+            <li><h5>year:</h5> <h4>{{bigDisplay.Year}}</h4></li>
+            <li><h5>director:</h5> <h4>{{bigDisplay.Director}}</h4></li>
+            <li><h5>actors:</h5> <h4>{{bigDisplay.Actors}}</h4></li>
+            <li><h5>awards:</h5> <h4>{{bigDisplay.Awards}}</h4></li>
+            <li><h5>country:</h5> <h4>{{bigDisplay.Country}}</h4></li>
+            <li><h5>plot:</h5> <h4>{{bigDisplay.Plot}}</h4></li>
 
-
-    <h3>big space</h3>
+          <!-- <li><img src={{name.bigPoster}}></li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
-
 </div>
